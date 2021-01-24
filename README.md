@@ -14,5 +14,5 @@ new_york_city.csv
 washington.csv
 
 ### Credits
-index of max value in a dictionary from 'https://stackoverflow.com/a/280156/14878074'
+index of max value in a dictionary from this [link](https://stackoverflow.com/a/280156/14878074)
 load data code from practice#3 in bikeshare project material.
