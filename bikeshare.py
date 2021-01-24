@@ -37,7 +37,7 @@ def get_filters():
         except:
             print("please type a valid city name")
     # get user input for month (all, january, february, ... , june)
-    
+
     if filter_type == 'month' or filter_type == 'both':
         while True:
             month = input("Please type the month (january, february, ... , june) or type all : " ).lower()
@@ -114,7 +114,7 @@ def time_stats(df, filter_type):
             month_count[i] = count_df['month']
         most_month = max(month_count, key=month_count.get)
         print('The most common month is: {}'.format(months_dict[most_month]))
-    
+
     # display the most common day of week (if no filter by day is applied)
     if filter_type not in ['day', 'both']:
         day_dict = {0: 'Monday', 1: 'Tuesday', 2: 'Wednsday', 3: 'Thursday', 4: 'Friday', 5: 'Saterday', 6: 'Sunday'}
@@ -131,7 +131,7 @@ def time_stats(df, filter_type):
         count_df = df[df['Start Time'].dt.hour == i].count()
         hour_count.append(count_df['Start Time'])
     print('The most common hour is: {}'.format(hour_count.index(max(hour_count))))
-    
+
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
@@ -208,6 +208,7 @@ def user_stats(df, city):
 
 
 def view_raw_data(df):
+    # View 5 lines of raw data
     i = 0
     while True:
         raw_data = input('\nWould you like to view 5 lines of raw data? Enter yes or no.\n')
@@ -216,7 +217,7 @@ def view_raw_data(df):
         else:
             print(tabulate(df.iloc[i:i+5], headers='keys'))
         i += 5
-    
+
 def main():
     while True:
         city, month, day, filter_type = get_filters()
