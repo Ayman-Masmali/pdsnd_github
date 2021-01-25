@@ -22,42 +22,31 @@ def get_filters():
     # get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
     while True:
         filter_type = input("Would you like to filter by month, day, both or without filter: ").lower()
-        try:
-            if filter_type in  ['month', 'day', 'both', 'without filter', 'without']:
-                break
-            print("please type a valid filter")
-        except:
-            print("please type a valid filter")
+        if filter_type in  ['month', 'day', 'both', 'without filter', 'without']:
+            break
+        print("please type a valid filter")
     while True:
         city = input("Please type the name of the city: " ).lower()
-        try:
-            if city in  ['chicago', 'new york city', 'washington']:
-                break
-            print("please type a valid city name")
-        except:
-            print("please type a valid city name")
+        if city in  ['chicago', 'new york city', 'washington']:
+            break
+        print("please type a valid city name")
     # get user input for month (all, january, february, ... , june)
-    
+
     if filter_type == 'month' or filter_type == 'both':
         while True:
             month = input("Please type the month (january, february, ... , june) or type all : " ).lower()
-            try:
-                if month in ['all' , 'january', 'february', 'march', 'april', 'may' , 'june']:
-                    break
-                print("please type a valid month")
-            except:
-                print("please type a valid month")
+            if month in ['all' , 'january', 'february', 'march', 'april', 'may' , 'june']:
+                break
+            print("please type a valid month")
 
     # get user input for day of week (all, monday, tuesday, ... sunday)
     if filter_type == 'day' or filter_type == 'both':
         while True:
             day = input("Please type the day (monday, tuesday, ... sunday) or type all : " ).lower()
-            try:
-                if day in ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday' , 'sunday', 'all']:
-                    break
-                print("please type a valid day")
-            except:
-                print("please type a valid day")
+            if day in ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday' , 'sunday', 'all']:
+                break
+            print("please type a valid day")
+
     print('-'*40)
     return city, month, day, filter_type
 
@@ -114,7 +103,7 @@ def time_stats(df, filter_type):
             month_count[i] = count_df['month']
         most_month = max(month_count, key=month_count.get)
         print('The most common month is: {}'.format(months_dict[most_month]))
-    
+
     # display the most common day of week (if no filter by day is applied)
     if filter_type not in ['day', 'both']:
         day_dict = {0: 'Monday', 1: 'Tuesday', 2: 'Wednsday', 3: 'Thursday', 4: 'Friday', 5: 'Saterday', 6: 'Sunday'}
@@ -131,7 +120,7 @@ def time_stats(df, filter_type):
         count_df = df[df['Start Time'].dt.hour == i].count()
         hour_count.append(count_df['Start Time'])
     print('The most common hour is: {}'.format(hour_count.index(max(hour_count))))
-    
+
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
@@ -216,7 +205,7 @@ def view_raw_data(df):
         else:
             print(tabulate(df.iloc[i:i+5], headers='keys'))
         i += 5
-    
+
 def main():
     while True:
         city, month, day, filter_type = get_filters()
