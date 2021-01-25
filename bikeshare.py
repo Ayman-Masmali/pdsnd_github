@@ -133,13 +133,13 @@ def station_stats(df):
 
     # display most commonly used start station (the first for loop takes alot of time
     start_station = df.groupby('Start Station')['Unnamed: 0'].nunique()
-    most_sstation = start_station[start_station == max(start_station)].index[0]
-    print('The most commonly used start station is: {}, with count of: {}'.format(most_sstation, max(start_station)))
+    most_start_station = start_station[start_station == max(start_station)].index[0]
+    print('The most commonly used start station is: {}, with count of: {}'.format(most_start_station, max(start_station)))
 
     # display most commonly used end station
     end_station = df.groupby('End Station')['Unnamed: 0'].nunique()
-    most_estation = end_station[end_station == max(end_station)].index[0]
-    print('The most commonly used end station is: {}, with count of: {}'.format(most_estation, max(end_station)))
+    most_end_station = end_station[end_station == max(end_station)].index[0]
+    print('The most commonly used end station is: {}, with count of: {}'.format(most_end_station, max(end_station)))
 
 
     # display most frequent combination of start station and end station trip
