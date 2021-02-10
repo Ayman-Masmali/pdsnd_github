@@ -8,10 +8,10 @@ Exploring US Bikeshare Data
 This project uses a python code to investigate the US bikeshare data of three different cities, namely Washington, Chicago and New York city.  
 
 ### Files used
-bikeshare.py
-chicago.csv
-new_york_city.csv
-washington.csv
+* bikeshare.py
+* chicago.csv
+* new_york_city.csv
+* washington.csv
 
 ### Credits
 index of max value in a dictionary from this [link](https://stackoverflow.com/a/280156/14878074)
